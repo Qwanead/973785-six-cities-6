@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Антон Рассадников](https://up.htmlacademy.ru/react/6/user/973785).
-* Наставник: `Неизвестно`.
+* Наставник: [Сергей Вохмянин](https://up.htmlacademy.ru/react/6/user/530823).
 
 ---
 
