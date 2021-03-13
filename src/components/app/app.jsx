@@ -1,27 +1,43 @@
 import React from 'react';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
+
+import SvgIcons from '../svg-icons/svg-icons';
 import Main from '../main/main';
-import PropTypes from 'prop-types';
+import Favorites from '../favorites/favorites';
+import Login from '../login/login';
+import NotFound from '../not-found/not-found';
+import Offer from '../offer/offer';
+import appPropTypes from './app.prop-types';
 
 const App = (props) => {
   const {cards} = props;
 
   return (
-    <Main cards={cards}/>
+    <>
+      <SvgIcons />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Main cards={cards} />
+          </Route>
+          <Route exact path="/favorites">
+            <Favorites />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/offer/:id?">
+            <Offer />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 };
 
-App.propTypes = {
-  cards: PropTypes.arrayOf(
-      PropTypes.shape({
-        isPremium: PropTypes.bool.isRequired,
-        image: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired,
-        stars: PropTypes.number.isRequired,
-        isBookmarked: PropTypes.bool.isRequired,
-        name: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-      })
-  ).isRequired
-};
+App.propTypes = appPropTypes;
 
 export default App;

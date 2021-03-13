@@ -1,21 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PremiumMark = (props) => {
-  if (props.isPremium) {
-    return (
-      <div className="place-card__mark">
-        <span>Premium</span>
-      </div>
-    );
-  }
-
-  return null;
-};
-
-PremiumMark.propTypes = {
-  isPremium: PropTypes.bool.isRequired
-};
+import PremiumMark from './premium-mark';
 
 const PlaceCard = (props) => {
   const {isPremium, image, value, stars, isBookmarked, name, type} = props.card;
